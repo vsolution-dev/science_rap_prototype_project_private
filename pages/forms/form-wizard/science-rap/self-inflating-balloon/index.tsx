@@ -72,6 +72,23 @@ const selfinflatingballoon = () => {
   };
   const quizs = [<>산소</>, <>이산화탄소</>];
 
+  const quizitemStyles = [
+    {
+      width: "100%",
+      height: "100%",
+      background: "#419A68",
+      borderRadius: 10,
+      marginBottom: "20px",
+    },
+    {
+      width: "100%",
+      height: "100%",
+      background: "#419A68",
+      borderRadius: 10,
+      marginBottom: "20px",
+    },
+  ];
+
   const [isShowNextButton, setIsShowNextButton] = useState<boolean>(true);
 
   const [activeStep, setActiveStep] = React.useState(0);
@@ -175,9 +192,7 @@ const selfinflatingballoon = () => {
                   variant="contained"
                   size="large"
                   fullWidth
-                  style={{
-                    marginBottom: "20px",
-                  }}
+                  style={quizitemStyles[index]}
                   key={index}
                   value={index}
                   onClick={handleSelectquiz}
