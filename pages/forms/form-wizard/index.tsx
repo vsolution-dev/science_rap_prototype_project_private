@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Stepper,
-  Step,
-  StepLabel,
-  Button,
-  Typography,
-  Snackbar,
-} from "@mui/material";
+import { Box, Stepper, Step, StepLabel, Button, Typography, Snackbar } from "@mui/material";
 import PageContainer from "../../../src/components/container/PageContainer";
 import Breadcrumb from "../../../src/layouts/full/shared/breadcrumb/Breadcrumb";
 
@@ -19,10 +11,7 @@ import { useRouter } from "next/router";
 
 const steps = ["Level", "Quarter", "Experiment"];
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref
-) {
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
@@ -30,10 +19,7 @@ const FormWizard = () => {
   const router = useRouter();
 
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
-  const handleSnackbarClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
+  const handleSnackbarClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === "clickaway") {
       return;
     }
@@ -57,11 +43,7 @@ const FormWizard = () => {
   };
   const levels = [
     <>
-      <img
-        src={"/icons/ic_seedling.svg"}
-        alt="alt"
-        style={{ width: "auto", height: "auto" }}
-      />
+      <img src={"/icons/ic_seedling.svg"} alt="alt" style={{ width: "auto", height: "auto" }} />
       <br></br>
       새싹
       <br></br>
@@ -79,11 +61,7 @@ const FormWizard = () => {
       (10세 ~ 12세)
     </>,
     <>
-      <img
-        src={"/icons/ic_tree_3.svg"}
-        alt="alt"
-        style={{ width: "auto", height: "auto" }}
-      />
+      <img src={"/icons/ic_tree_3.svg"} alt="alt" style={{ width: "auto", height: "auto" }} />
       <br></br>숲<br></br>
       (13세 ~ 15세)
     </>,
@@ -147,6 +125,8 @@ const FormWizard = () => {
 
   const experimentitemStyles = [
     {
+      display: "flex",
+      justifyContent: "flex-start",
       width: "100%",
       height: "100%",
       background: "#FBDDF4",
@@ -154,6 +134,8 @@ const FormWizard = () => {
       marginBottom: "20px",
     },
     {
+      display: "flex",
+      justifyContent: "flex-start",
       width: "100%",
       height: "100%",
       background: "#DBF5F9",
@@ -162,6 +144,8 @@ const FormWizard = () => {
     },
 
     {
+      display: "flex",
+      justifyContent: "flex-start",
       width: "100%",
       height: "100%",
       background: "#FCE6D2",
@@ -169,6 +153,8 @@ const FormWizard = () => {
       marginBottom: "20px",
     },
     {
+      display: "flex",
+      justifyContent: "flex-start",
       width: "100%",
       height: "100%",
       background: "#D9DEF1",
@@ -303,9 +289,7 @@ const FormWizard = () => {
   ];
   // Experiment select item info
   const getExperiment = (level: number, quarter: number) => {
-    const findResult = experiments.find(
-      (item) => item.level == level && item.quarter == quarter
-    );
+    const findResult = experiments.find((item) => item.level == level && item.quarter == quarter);
     return !!findResult ? findResult.items : [];
   };
   const handelSelectExperiments = (event: any, target: any) => {
@@ -327,67 +311,103 @@ const FormWizard = () => {
       items: [
         {
           title: (
-            <div
-              style={{
-                color: "#5F2F2E",
-                fontSize: 24,
-                fontFamily: "Pretendard",
-                fontWeight: "700",
-                wordWrap: "break-word",
-                alignItems: "center",
-                textAlign: "left",
-              }}
-            >
-              스스로 커지는 풍선
-            </div>
+            <>
+              <img
+                src="/icons/ic_face_in_clouds.svg"
+                alt="alt"
+                style={{
+                  marginRight: "1rem",
+                }}
+              />
+              <div
+                style={{
+                  color: "#5F2F2E",
+                  fontSize: 24,
+                  fontFamily: "Pretendard",
+                  fontWeight: "700",
+                  wordWrap: "break-word",
+                  alignItems: "center",
+                  textAlign: "left",
+                }}
+              >
+                스스로 커지는 풍선
+              </div>
+            </>
           ),
           target: "/forms/form-wizard/science-rap/self-inflating-balloon",
         },
         {
           title: (
-            <div
-              style={{
-                color: "#31537C",
-                fontSize: 24,
-                fontFamily: "Pretendard",
-                fontWeight: "700",
-                wordWrap: "break-word",
-              }}
-            >
-              달걀 탱탱볼
-            </div>
+            <>
+              <img
+                src="/icons/ic_white_heart.svg"
+                alt="alt"
+                style={{
+                  marginRight: "1rem",
+                }}
+              />
+              <div
+                style={{
+                  color: "#31537C",
+                  fontSize: 24,
+                  fontFamily: "Pretendard",
+                  fontWeight: "700",
+                  wordWrap: "break-word",
+                }}
+              >
+                달걀 탱탱볼
+              </div>
+            </>
           ),
           target: undefined,
         },
         {
           title: (
-            <div
-              style={{
-                color: "#5F2F2E",
-                fontSize: 24,
-                fontFamily: "Pretendard",
-                fontWeight: "700",
-                wordWrap: "break-word",
-              }}
-            >
-              자석 자동차
-            </div>
+            <>
+              <img
+                src="/icons/ic_automobile.svg"
+                alt="alt"
+                style={{
+                  marginRight: "1rem",
+                }}
+              />
+              <div
+                style={{
+                  color: "#5F2F2E",
+                  fontSize: 24,
+                  fontFamily: "Pretendard",
+                  fontWeight: "700",
+                  wordWrap: "break-word",
+                }}
+              >
+                자석 자동차
+              </div>
+            </>
           ),
           target: undefined,
         },
         {
           title: (
-            <div
-              style={{
-                color: "#31537C",
-                fontSize: 24,
-                fontFamily: "Pretendard",
-                fontWeight: "700",
-                wordWrap: "break-word",
-              }}
-            >
-              빨대 피리
-            </div>
+            <>
+              <img
+                src="/icons/ic_partying_face.svg"
+                alt="alt"
+                style={{
+                  marginRight: "1rem",
+                }}
+              />
+              <div
+                style={{
+                  color: "#31537C",
+                  fontSize: 24,
+                  fontFamily: "Pretendard",
+                  fontWeight: "700",
+                  wordWrap: "break-word",
+                }}
+              >
+                빨대 피리
+              </div>
+            </>
           ),
           target: undefined,
         },
@@ -678,20 +698,12 @@ const FormWizard = () => {
         autoHideDuration={3000}
         onClose={handleSnackbarClose}
       >
-        <Alert
-          onClose={handleSnackbarClose}
-          severity="error"
-          sx={{ width: "100%" }}
-        >
+        <Alert onClose={handleSnackbarClose} severity="error" sx={{ width: "100%" }}>
           준비 중입니다. 다른 기능을 이용하여 주십시오.
         </Alert>
       </Snackbar>
 
-      <ParentCard
-        title="ScienceRAP"
-        event={handleBack}
-        disable={activeStep === 0}
-      >
+      <ParentCard title="ScienceRAP" event={handleBack} disable={activeStep === 0}>
         <Box width="100%">
           <Stepper activeStep={activeStep}>
             {steps.map((label, index) => {
@@ -700,9 +712,7 @@ const FormWizard = () => {
                 optional?: React.ReactNode;
               } = {};
               if (isStepOptional(index)) {
-                labelProps.optional = (
-                  <Typography variant="caption">Optional</Typography>
-                );
+                labelProps.optional = <Typography variant="caption">Optional</Typography>;
               }
               if (isStepSkipped(index)) {
                 stepProps.completed = false;
@@ -718,16 +728,10 @@ const FormWizard = () => {
           {activeStep === steps.length ? (
             <>
               <Stack spacing={2} mt={3}>
-                <Alert severity="success">
-                  All steps completed - you&apos;re finished
-                </Alert>
+                <Alert severity="success">All steps completed - you&apos;re finished</Alert>
 
                 <Box textAlign="right">
-                  <Button
-                    onClick={handleReset}
-                    variant="contained"
-                    color="error"
-                  >
+                  <Button onClick={handleReset} variant="contained" color="error">
                     Reset
                   </Button>
                 </Box>
