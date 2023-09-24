@@ -1,14 +1,6 @@
 import React from "react";
 import ReactPlayer from "react-player";
-import {
-  Box,
-  Stepper,
-  Step,
-  StepLabel,
-  Button,
-  Typography,
-  Snackbar,
-} from "@mui/material";
+import { Box, Stepper, Step, StepLabel, Button, Typography, Snackbar } from "@mui/material";
 import { useEffect, useState } from "react";
 import PageContainer from "../../../../../src/components/container/PageContainer";
 import Breadcrumb from "../../../../../src/layouts/full/shared/breadcrumb/Breadcrumb";
@@ -22,19 +14,13 @@ import { useRouter } from "next/router";
 
 const steps = ["Video 1", "Video 2", "Video 3", "Video 4"];
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref
-) {
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
 const selfinflatingballoon = () => {
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
-  const handleSnackbarClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
+  const handleSnackbarClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === "clickaway") {
       return;
     }
@@ -48,12 +34,7 @@ const selfinflatingballoon = () => {
     setIsWindow(true);
   }, []);
 
-  const videos = [
-    "/videos/v1.mp4",
-    "/videos/v2.mp4",
-    "/videos/v3.mp4",
-    "/videos/v4.mp4",
-  ];
+  const videos = ["/videos/v1.mp4", "/videos/v2.mp4", "/videos/v3.mp4", "/videos/v4.mp4"];
 
   // quiz select item info
   const [selectquiz, setSelectquiz] = React.useState(0);
@@ -102,7 +83,7 @@ const selfinflatingballoon = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (activeStep === steps.length) {
+    if (activeStep - 2 === steps.length) {
       router.push("/");
       return;
     }
@@ -203,8 +184,7 @@ const selfinflatingballoon = () => {
               }}
             />
             <div>
-              식초와 탄산수소 나트륨이 만나면
-              (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)라는 기체가 발생해요.
+              식초와 탄산수소 나트륨이 만나면 (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)라는 기체가 발생해요.
             </div>
             <br></br>
             <div> &lt;보기 &gt;</div>
@@ -329,63 +309,49 @@ const selfinflatingballoon = () => {
         autoHideDuration={3000}
         onClose={handleSnackbarClose}
       >
-        <Alert
-          onClose={handleSnackbarClose}
-          severity="error"
-          sx={{ width: "100%" }}
-        >
+        <Alert onClose={handleSnackbarClose} severity="error" sx={{ width: "100%" }}>
           오답 입니다. 다시 선택해주세요.
         </Alert>
       </Snackbar>
-      <ParentCard
-        title="스스로 커지는 풍선"
-        event={handleBack}
-        disable={activeStep === 0}
-      >
+      <ParentCard title="스스로 커지는 풍선" event={handleBack} disable={activeStep === 0}>
         <Box width="100%">
-          <Stepper
-            style={{
-              flexWrap: "wrap",
-              justifyItems: "center",
-              alignContent: "space-between",
-              justifyContent: "space-around",
-            }}
-            activeStep={activeStep}
-          >
-            {steps.map((label, index) => {
-              const stepProps: { completed?: boolean } = {};
-              const labelProps: {
-                optional?: React.ReactNode;
-              } = {};
-              if (isStepOptional(index)) {
-                labelProps.optional = (
-                  <Typography variant="caption">Optional</Typography>
-                );
-              }
-              if (isStepSkipped(index)) {
-                stepProps.completed = false;
-              }
+          {activeStep < 4 && (
+            <Stepper
+              style={{
+                flexWrap: "wrap",
+                justifyItems: "center",
+                alignContent: "space-between",
+                justifyContent: "space-around",
+              }}
+              activeStep={activeStep}
+            >
+              {steps.map((label, index) => {
+                const stepProps: { completed?: boolean } = {};
+                const labelProps: {
+                  optional?: React.ReactNode;
+                } = {};
+                if (isStepOptional(index)) {
+                  labelProps.optional = <Typography variant="caption">Optional</Typography>;
+                }
+                if (isStepSkipped(index)) {
+                  stepProps.completed = false;
+                }
 
-              return (
-                <Step key={label} {...stepProps}>
-                  <StepLabel {...labelProps}>{label}</StepLabel>
-                </Step>
-              );
-            })}
-          </Stepper>
-          {activeStep === steps.length ? (
+                return (
+                  <Step key={label} {...stepProps}>
+                    <StepLabel {...labelProps}>{label}</StepLabel>
+                  </Step>
+                );
+              })}
+            </Stepper>
+          )}
+          {activeStep - 3 === steps.length ? (
             <>
               <Stack spacing={2} mt={3}>
-                <Alert severity="success">
-                  All steps completed - you&apos;re finished
-                </Alert>
+                <Alert severity="success">All steps completed - you&apos;re finished</Alert>
 
                 <Box textAlign="right">
-                  <Button
-                    onClick={handleReset}
-                    variant="contained"
-                    color="error"
-                  >
+                  <Button onClick={handleReset} variant="contained" color="error">
                     Reset
                   </Button>
                 </Box>
@@ -415,11 +381,9 @@ const selfinflatingballoon = () => {
                   <Button
                     onClick={handleNext}
                     variant="contained"
-                    color={
-                      activeStep === steps.length - 1 ? "success" : "secondary"
-                    }
+                    color={activeStep === steps.length - 4 ? "success" : "secondary"}
                   >
-                    {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                    {activeStep === steps.length - 4 ? "Finish" : "Next"}
                   </Button>
                 )}
               </Box>
