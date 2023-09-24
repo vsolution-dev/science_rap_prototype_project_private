@@ -94,28 +94,28 @@ const FormWizard = () => {
 
   const quarteritemStyles = [
     {
-      width: "45%",
+      // width: "45%",
       height: "100%",
       background: "#FBDDED",
       borderRadius: 20,
       margin: "0.2rem",
     },
     {
-      width: "45%",
+      // width: "45%",
       height: "100%",
       background: "#DBF0F9",
       borderRadius: 20,
       margin: "0.2rem",
     },
     {
-      width: "45%",
+      // width: "45%",
       height: "100%",
       background: "#FCE6D2",
       borderRadius: 20,
       margin: "0.2rem",
     },
     {
-      width: "45%",
+      // width: "45%",
       height: "100%",
       background: "#D9DAF1",
       borderRadius: 20,
@@ -561,36 +561,45 @@ const FormWizard = () => {
               </div>
             </div>
             <br></br>
-
-            {quarters.map((item, index) => {
-              return (
-                <Button
-                  variant="contained"
-                  size="large"
-                  fullWidth
-                  style={quarteritemStyles[index]}
-                  key={index}
-                  value={index}
-                  onClick={handleSelectQuarter}
-                >
-                  {item && (
-                    <div
-                      style={{
-                        color: "#724414",
-                        fontSize: 24,
-                        fontFamily: "Pretendard",
-                        fontWeight: "700",
-                        wordWrap: "break-word",
-                      }}
-                    >
-                      {item}
-                    </div>
-                  )}
-                </Button>
-              );
-            })}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)",
+                placeItems: "center",
+                gap: "1rem",
+              }}
+            >
+              {quarters.map((item, index) => {
+                return (
+                  <Button
+                    variant="contained"
+                    size="large"
+                    fullWidth
+                    style={quarteritemStyles[index]}
+                    key={index}
+                    value={index}
+                    onClick={handleSelectQuarter}
+                  >
+                    {item && (
+                      <div
+                        style={{
+                          color: "#724414",
+                          fontSize: 24,
+                          fontFamily: "Pretendard",
+                          fontWeight: "700",
+                          wordWrap: "break-word",
+                        }}
+                      >
+                        {item}
+                      </div>
+                    )}
+                  </Button>
+                );
+              })}
+            </div>
           </Box>
         );
+
       case 2:
         return (
           <Box pt={3}>
