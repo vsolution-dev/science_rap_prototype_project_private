@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Stepper, Step, StepLabel, Button, Typography, Snackbar } from "@mui/material";
+import {
+  Box,
+  Stepper,
+  Step,
+  StepLabel,
+  Button,
+  Typography,
+  Snackbar,
+} from "@mui/material";
 import PageContainer from "../../../src/components/container/PageContainer";
 import Breadcrumb from "../../../src/layouts/full/shared/breadcrumb/Breadcrumb";
 
@@ -11,7 +19,10 @@ import { useRouter } from "next/router";
 
 const steps = ["", "", ""];
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref
+) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
@@ -19,7 +30,10 @@ const FormWizard = () => {
   const router = useRouter();
 
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
-  const handleSnackbarClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+  const handleSnackbarClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
     if (reason === "clickaway") {
       return;
     }
@@ -43,7 +57,11 @@ const FormWizard = () => {
   };
   const levels = [
     <>
-      <img src={"/icons/ic_seedling.svg"} alt="alt" style={{ width: "auto", height: "auto" }} />
+      <img
+        src={"/icons/ic_seedling.svg"}
+        alt="alt"
+        style={{ width: "auto", height: "auto" }}
+      />
       <br></br>
       새싹
       <br></br>
@@ -61,7 +79,11 @@ const FormWizard = () => {
       (10세 ~ 12세)
     </>,
     <>
-      <img src={"/icons/ic_tree_3.svg"} alt="alt" style={{ width: "auto", height: "auto" }} />
+      <img
+        src={"/icons/ic_tree_3.svg"}
+        alt="alt"
+        style={{ width: "auto", height: "auto" }}
+      />
       <br></br>숲<br></br>
       (13세 ~ 15세)
     </>,
@@ -289,7 +311,9 @@ const FormWizard = () => {
   ];
   // Experiment select item info
   const getExperiment = (level: number, quarter: number) => {
-    const findResult = experiments.find((item) => item.level == level && item.quarter == quarter);
+    const findResult = experiments.find(
+      (item) => item.level == level && item.quarter == quarter
+    );
     return !!findResult ? findResult.items : [];
   };
   const handelSelectExperiments = (event: any, target: any) => {
@@ -707,7 +731,11 @@ const FormWizard = () => {
         autoHideDuration={3000}
         onClose={handleSnackbarClose}
       >
-        <Alert onClose={handleSnackbarClose} severity="error" sx={{ width: "100%" }}>
+        <Alert
+          onClose={handleSnackbarClose}
+          severity="error"
+          sx={{ width: "100%" }}
+        >
           준비 중입니다. 다른 기능을 이용하여 주십시오.
         </Alert>
       </Snackbar>
@@ -716,6 +744,7 @@ const FormWizard = () => {
         title=""
         event={handleBack}
         disable={activeStep === 0}
+        ismain={!(activeStep === 0)}
         logo={
           <img
             src={"/icons/logo.svg"}
@@ -751,10 +780,16 @@ const FormWizard = () => {
           {activeStep === steps.length ? (
             <>
               <Stack spacing={2} mt={3}>
-                <Alert severity="success">All steps completed - you&apos;re finished</Alert>
+                <Alert severity="success">
+                  All steps completed - you&apos;re finished
+                </Alert>
 
                 <Box textAlign="right">
-                  <Button onClick={handleReset} variant="contained" color="error">
+                  <Button
+                    onClick={handleReset}
+                    variant="contained"
+                    color="error"
+                  >
                     Reset
                   </Button>
                 </Box>

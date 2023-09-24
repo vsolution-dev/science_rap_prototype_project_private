@@ -19,6 +19,7 @@ import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import { Stack } from "@mui/system";
 import { Height } from "@mui/icons-material";
 import { useRouter } from "next/router";
+import { ro } from "date-fns/locale";
 
 const steps = ["1", "2", "3", "4"];
 
@@ -126,6 +127,10 @@ const selfinflatingballoon = () => {
   };
 
   const handleBack = () => {
+    if (activeStep === 0) {
+      router.push("/");
+      return;
+    }
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
@@ -154,9 +159,7 @@ const selfinflatingballoon = () => {
       case 3:
         return (
           <Box>
-            <CustomFormLabel htmlFor="Videos">
-              스스로 커지는 풍선 | Video 4 / {`${step + 1}`}
-            </CustomFormLabel>
+            <CustomFormLabel htmlFor="Videos"></CustomFormLabel>
             <br></br>
             <div>
               <ReactPlayer
@@ -354,11 +357,7 @@ const selfinflatingballoon = () => {
           오답 입니다. 다시 선택해주세요.
         </Alert>
       </Snackbar>
-      <ParentCard
-        title="스스로 커지는 풍선"
-        event={handleBack}
-        disable={activeStep === 0}
-      >
+      <ParentCard title="스스로 커지는 풍선" event={handleBack} disable={false}>
         <Box width="100%">
           {activeStep < 4 && (
             <Stepper

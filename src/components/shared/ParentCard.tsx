@@ -1,6 +1,14 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
-import { Card, CardHeader, CardContent, Divider, Box, Tooltip, IconButton } from "@mui/material";
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  Divider,
+  Box,
+  Tooltip,
+  IconButton,
+} from "@mui/material";
 import { useSelector } from "../../../src/store/Store";
 import { AppState } from "../../../src/store/Store";
 import { IconArrowBack, IconBackslash } from "@tabler/icons-react";
@@ -14,9 +22,18 @@ type Props = {
   event?: any;
   disable?: boolean;
   logo?: JSX.Element;
+  ismain?: boolean;
 };
 
-const ParentCard = ({ title, children, footer, event, disable, logo }: Props) => {
+const ParentCard = ({
+  title,
+  children,
+  footer,
+  ismain,
+  event,
+  disable,
+  logo,
+}: Props) => {
   const customizer = useSelector((state: AppState) => state.customizer);
 
   const theme = useTheme();
@@ -38,7 +55,7 @@ const ParentCard = ({ title, children, footer, event, disable, logo }: Props) =>
         }}
       >
         {!!disable && disable === true ? (
-          <>{logo}</>
+          <>{!ismain && logo}</>
         ) : (
           <>
             <Tooltip title="Bell">
@@ -51,14 +68,13 @@ const ParentCard = ({ title, children, footer, event, disable, logo }: Props) =>
                   }
                 }}
               >
-                <IconArrowBack
-                  width={20}
-                  style={{
-                    marginLeft: "10px",
-                  }}
+                <img
+                  src={"/icons/image_10.svg"}
+                  alt="alt"
+                  style={{ width: "auto", height: "auto" }}
                 />
 
-                {logo}
+                {!ismain && logo}
               </IconButton>
             </Tooltip>
           </>
