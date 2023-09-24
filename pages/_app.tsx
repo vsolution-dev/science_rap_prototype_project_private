@@ -52,7 +52,7 @@ const MyApp = (props: MyAppProps) => {
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <title>Modernize NextJs Admin template</title>
+        <title>과학교육전문 SCIENCE RAP</title>
       </Head>
       <ThemeProvider theme={theme}>
         <RTL direction={customizer.activeDir}>
