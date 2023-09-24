@@ -1,14 +1,6 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  Divider,
-  Box,
-  Tooltip,
-  IconButton,
-} from "@mui/material";
+import { Card, CardHeader, CardContent, Divider, Box, Tooltip, IconButton } from "@mui/material";
 import { useSelector } from "../../../src/store/Store";
 import { AppState } from "../../../src/store/Store";
 import { IconArrowBack, IconBackslash } from "@tabler/icons-react";
@@ -21,9 +13,10 @@ type Props = {
   children: JSX.Element;
   event?: any;
   disable?: boolean;
+  logo?: JSX.Element;
 };
 
-const ParentCard = ({ title, children, footer, event, disable }: Props) => {
+const ParentCard = ({ title, children, footer, event, disable, logo }: Props) => {
   const customizer = useSelector((state: AppState) => state.customizer);
 
   const theme = useTheme();
@@ -45,7 +38,7 @@ const ParentCard = ({ title, children, footer, event, disable }: Props) => {
         }}
       >
         {!!disable && disable === true ? (
-          <></>
+          <>{logo}</>
         ) : (
           <>
             <Tooltip title="Bell">
@@ -64,25 +57,29 @@ const ParentCard = ({ title, children, footer, event, disable }: Props) => {
                     marginLeft: "10px",
                   }}
                 />
+
+                {logo}
               </IconButton>
             </Tooltip>
           </>
         )}
 
-        <CustomFormLabel
-          htmlFor="texr"
-          style={{
-            display: "inline",
-            color: "#000",
-            fontSize: 20,
-            marginLeft: !!disable && disable === true ? "20px" : "0px",
-            fontFamily: "Pretendard",
-            fontWeight: "700",
-            wordWrap: "break-word",
-          }}
-        >
-          {title}
-        </CustomFormLabel>
+        {!logo && (
+          <CustomFormLabel
+            htmlFor="texr"
+            style={{
+              display: "inline",
+              color: "#000",
+              fontSize: 20,
+              marginLeft: !!disable && disable === true ? "20px" : "0px",
+              fontFamily: "Pretendard",
+              fontWeight: "700",
+              wordWrap: "break-word",
+            }}
+          >
+            {title}
+          </CustomFormLabel>
+        )}
       </div>
       <Divider />
 

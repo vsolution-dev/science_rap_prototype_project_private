@@ -9,7 +9,7 @@ import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import { Stack } from "@mui/system";
 import { useRouter } from "next/router";
 
-const steps = ["Level", "Quarter", "Experiment"];
+const steps = ["", "", ""];
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -712,9 +712,23 @@ const FormWizard = () => {
         </Alert>
       </Snackbar>
 
-      <ParentCard title="ScienceRAP" event={handleBack} disable={activeStep === 0}>
+      <ParentCard
+        title=""
+        event={handleBack}
+        disable={activeStep === 0}
+        logo={
+          <img
+            src={"/icons/logo.svg"}
+            alt="alt"
+            style={{
+              margin: "0.5rem",
+              width: "10rem",
+            }}
+          />
+        }
+      >
         <Box width="100%">
-          <Stepper activeStep={activeStep}>
+          {/* <Stepper activeStep={activeStep}>
             {steps.map((label, index) => {
               const stepProps: { completed?: boolean } = {};
               const labelProps: {
@@ -733,7 +747,7 @@ const FormWizard = () => {
                 </Step>
               );
             })}
-          </Stepper>
+          </Stepper> */}
           {activeStep === steps.length ? (
             <>
               <Stack spacing={2} mt={3}>
@@ -751,7 +765,7 @@ const FormWizard = () => {
               <Box>{handleSteps(activeStep)}</Box>
 
               <Box display="flex" flexDirection="row" mt={3}>
-                <Button
+                {/* <Button
                   color="inherit"
                   variant="contained"
                   disabled={activeStep === 0}
@@ -759,7 +773,7 @@ const FormWizard = () => {
                   sx={{ mr: 1 }}
                 >
                   Back
-                </Button>
+                </Button> */}
                 <Box flex="1 1 auto" />
                 {isStepOptional(activeStep) && (
                   <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
