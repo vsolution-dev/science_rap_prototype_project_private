@@ -11,8 +11,12 @@ export default class MyDocument extends Document {
           {/* PWA primary color */}
           <meta name="theme-color" />
           <link rel="shortcut icon" href="/favicon.ico" />
-          <img src="/icons/SCIENCE_RAP_thumnail.png"></img>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+          ></link>
           <meta name="emotion-insertion-point" content="" />
+          <meta property="og:image" content="/SCIENCE_RAP_thumnail.png" />
           {(this.props as any).emotionStyleTags}
         </Head>
         <body>
