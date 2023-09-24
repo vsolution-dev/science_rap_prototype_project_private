@@ -12,7 +12,7 @@ import { Stack } from "@mui/system";
 import { Height } from "@mui/icons-material";
 import { useRouter } from "next/router";
 
-const steps = ["Video 1", "Video 2", "Video 3", "Video 4"];
+const steps = ["1", "2", "3", "4"];
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -55,7 +55,7 @@ const selfinflatingballoon = () => {
 
   const quizitemStyles = [
     {
-      marginTop: "603px",
+      marginTop: "1rem",
       width: "100%",
       height: "100%",
       background: "#419A68",
@@ -183,12 +183,30 @@ const selfinflatingballoon = () => {
                 lineHeight: "30",
               }}
             />
-            <div>
+            {/* src={"/icons/ic_fallen_leaf.svg"}
+                alt="alt"
+                style={{ width: "auto", height: "auto", marginTop: "20px" }} */}
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src="/icons/quiz.png"
+                alt="alt"
+                style={{ width: "20rem", height: "auto", marginTop: "20px" }}
+              ></img>
+            </div>
+
+            {/* <div>
               식초와 탄산수소 나트륨이 만나면 (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)라는 기체가 발생해요.
             </div>
             <br></br>
             <div> &lt;보기 &gt;</div>
-            <br></br>
+            <br></br> */}
             {quizs.map((item, index) => {
               return (
                 <Button
