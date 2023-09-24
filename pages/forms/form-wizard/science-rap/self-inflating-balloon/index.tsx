@@ -260,7 +260,7 @@ const selfinflatingballoon = () => {
                 marginBottom: "20px",
               }}
             >
-              더 알아보기
+              <center>더 알아보기</center>
             </CustomFormLabel>
 
             <div
@@ -414,17 +414,18 @@ const selfinflatingballoon = () => {
               <Box>{isWindow && handleSteps(activeStep)}</Box>
 
               <Box display="flex" flexDirection="row" mt={3}>
-                {!(activeStep - 1 === steps.length) && (
-                  <Button
-                    color="inherit"
-                    variant="contained"
-                    disabled={activeStep === 0}
-                    onClick={handleBack}
-                    sx={{ mr: 1 }}
-                  >
-                    이전
-                  </Button>
-                )}
+                {!(activeStep - 1 === steps.length) ||
+                  (!(activeStep - 3 === steps.length) && (
+                    <Button
+                      color="inherit"
+                      variant="contained"
+                      disabled={activeStep === 0}
+                      onClick={handleBack}
+                      sx={{ mr: 1 }}
+                    >
+                      이전
+                    </Button>
+                  ))}
                 <Box flex="1 1 auto" />
                 {isStepOptional(activeStep) && (
                   <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
