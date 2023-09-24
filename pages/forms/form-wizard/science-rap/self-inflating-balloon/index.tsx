@@ -1,6 +1,14 @@
 import React from "react";
 import ReactPlayer from "react-player";
-import { Box, Stepper, Step, StepLabel, Button, Typography, Snackbar } from "@mui/material";
+import {
+  Box,
+  Stepper,
+  Step,
+  StepLabel,
+  Button,
+  Typography,
+  Snackbar,
+} from "@mui/material";
 import { useEffect, useState } from "react";
 import PageContainer from "../../../../../src/components/container/PageContainer";
 import Breadcrumb from "../../../../../src/layouts/full/shared/breadcrumb/Breadcrumb";
@@ -14,13 +22,19 @@ import { useRouter } from "next/router";
 
 const steps = ["1", "2", "3", "4"];
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref
+) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
 const selfinflatingballoon = () => {
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
-  const handleSnackbarClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+  const handleSnackbarClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
     if (reason === "clickaway") {
       return;
     }
@@ -34,7 +48,12 @@ const selfinflatingballoon = () => {
     setIsWindow(true);
   }, []);
 
-  const videos = ["/videos/v1.mp4", "/videos/v2.mp4", "/videos/v3.mp4", "/videos/v4.mp4"];
+  const videos = [
+    "/videos/v1.mp4",
+    "/videos/v2.mp4",
+    "/videos/v3.mp4",
+    "/videos/v4.mp4",
+  ];
 
   // quiz select item info
   const [selectquiz, setSelectquiz] = React.useState(0);
@@ -327,11 +346,19 @@ const selfinflatingballoon = () => {
         autoHideDuration={3000}
         onClose={handleSnackbarClose}
       >
-        <Alert onClose={handleSnackbarClose} severity="error" sx={{ width: "100%" }}>
+        <Alert
+          onClose={handleSnackbarClose}
+          severity="error"
+          sx={{ width: "100%" }}
+        >
           오답 입니다. 다시 선택해주세요.
         </Alert>
       </Snackbar>
-      <ParentCard title="스스로 커지는 풍선" event={handleBack} disable={activeStep === 0}>
+      <ParentCard
+        title="스스로 커지는 풍선"
+        event={handleBack}
+        disable={activeStep === 0}
+      >
         <Box width="100%">
           {activeStep < 4 && (
             <Stepper
@@ -349,7 +376,9 @@ const selfinflatingballoon = () => {
                   optional?: React.ReactNode;
                 } = {};
                 if (isStepOptional(index)) {
-                  labelProps.optional = <Typography variant="caption">Optional</Typography>;
+                  labelProps.optional = (
+                    <Typography variant="caption">Optional</Typography>
+                  );
                 }
                 if (isStepSkipped(index)) {
                   stepProps.completed = false;
@@ -366,10 +395,16 @@ const selfinflatingballoon = () => {
           {activeStep - 3 === steps.length ? (
             <>
               <Stack spacing={2} mt={3}>
-                <Alert severity="success">All steps completed - you&apos;re finished</Alert>
+                <Alert severity="success">
+                  All steps completed - you&apos;re finished
+                </Alert>
 
                 <Box textAlign="right">
-                  <Button onClick={handleReset} variant="contained" color="error">
+                  <Button
+                    onClick={handleReset}
+                    variant="contained"
+                    color="error"
+                  >
                     Reset
                   </Button>
                 </Box>
@@ -380,28 +415,52 @@ const selfinflatingballoon = () => {
               <Box>{isWindow && handleSteps(activeStep)}</Box>
 
               <Box display="flex" flexDirection="row" mt={3}>
-                <Button
-                  color="inherit"
-                  variant="contained"
-                  disabled={activeStep === 0}
-                  onClick={handleBack}
-                  sx={{ mr: 1 }}
-                >
-                  Back
-                </Button>
+                {!(activeStep - 1 === steps.length) && (
+                  <Button
+                    color="inherit"
+                    variant="contained"
+                    disabled={activeStep === 0}
+                    onClick={handleBack}
+                    sx={{ mr: 1 }}
+                  >
+                    이전
+                  </Button>
+                )}
                 <Box flex="1 1 auto" />
                 {isStepOptional(activeStep) && (
                   <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
                     Skip
                   </Button>
                 )}
-                {isShowNextButton && (
+                {isShowNextButton && !(activeStep - 1 === steps.length) && (
                   <Button
                     onClick={handleNext}
                     variant="contained"
-                    color={activeStep === steps.length - 4 ? "success" : "secondary"}
+                    color={"secondary"}
                   >
-                    {activeStep === steps.length - 4 ? "Finish" : "Next"}
+                    다음
+                  </Button>
+                )}
+
+                {activeStep - 1 === steps.length && (
+                  <Button
+                    onClick={handleNext}
+                    style={{ background: "#232B35" }}
+                    variant="contained"
+                    color={"secondary"}
+                    fullWidth
+                  >
+                    <div
+                      style={{
+                        color: "white",
+                        fontSize: 24,
+                        fontFamily: "Pretendard",
+                        fontWeight: "700",
+                        wordWrap: "break-word",
+                      }}
+                    >
+                      다른 실험 도전!🔥
+                    </div>
                   </Button>
                 )}
               </Box>
