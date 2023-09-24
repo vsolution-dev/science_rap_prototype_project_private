@@ -27,5 +27,5 @@ const Landingpage = () => {
   );
 };
 
-// Landingpage.layout = "Blank";
+Landingpage.layout = "Blank";
 export default Landingpage;

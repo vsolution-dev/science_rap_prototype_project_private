@@ -97,6 +97,7 @@ const Customizer: FC = () => {
       disp: "ORANGE_THEME",
     },
   ];
+  dispatch(setTheme("CYAN_THEME"));
 
   return (
     <div>

@@ -50,7 +50,7 @@ const Header = () => {
         {/* ------------------------------------------- */}
         {/* Toggle Button Sidebar */}
         {/* ------------------------------------------- */}
-        <IconButton
+        {/* <IconButton
           color="inherit"
           aria-label="menu"
           onClick={
@@ -60,7 +60,7 @@ const Header = () => {
           }
         >
           <IconMenu2 size="20" />
-        </IconButton>
+        </IconButton> */}
 
         {/* ------------------------------------------- */}
         {/* Search Dropdown */}
@@ -83,7 +83,7 @@ const Header = () => {
           {/* Toggle Right Sidebar for mobile */}
           {/* ------------------------------------------- */}
           {/* {lgDown ? <MobileRightSidebar /> : null} */}
-          <Profile />
+          {/* <Profile /> */}
         </Stack>
       </ToolbarStyled>
     </AppBarStyled>

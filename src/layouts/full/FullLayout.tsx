@@ -54,7 +54,7 @@ const FullLayout: React.FC<Props> = ({ children }) => {
         {/* ------------------------------------------- */}
         {/* Header */}
         {/* ------------------------------------------- */}
-        {customizer.isHorizontal ? <HorizontalHeader /> : <Header />}
+        {/* {customizer.isHorizontal ? <HorizontalHeader /> : <Header />} */}
         {/* PageContent */}
         {customizer.isHorizontal ? <Navigation /> : ""}
         <Container

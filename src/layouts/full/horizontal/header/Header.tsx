@@ -58,7 +58,7 @@ const Header = () => {
         {/* ------------------------------------------- */}
         {/* Toggle Button Sidebar */}
         {/* ------------------------------------------- */}
-        {lgDown ? (
+        {/* {lgDown ? (
           <IconButton
             color="inherit"
             aria-label="menu"
@@ -68,7 +68,7 @@ const Header = () => {
           </IconButton>
         ) : (
           ""
-        )}
+        )} */}
         {/* ------------------------------------------- */}
         {/* Search Dropdown */}
         {/* ------------------------------------------- */}
@@ -85,7 +85,7 @@ const Header = () => {
           {/* End Ecommerce Dropdown */}
           {/* ------------------------------------------- */}
           {/* <Notifications /> */}
-          <Profile />
+          {/* <Profile /> */}
         </Stack>
       </ToolbarStyled>
     </AppBarStyled>

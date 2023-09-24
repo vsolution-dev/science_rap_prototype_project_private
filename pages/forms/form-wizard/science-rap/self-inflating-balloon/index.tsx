@@ -20,7 +20,7 @@ import { Stack } from "@mui/system";
 import { Height } from "@mui/icons-material";
 import { useRouter } from "next/router";
 
-const steps = ["Video 1", "Video 2", "Video 3", "Video 4", "Quiz", "Finish"];
+const steps = ["Video 1", "Video 2", "Video 3", "Video 4"];
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -229,7 +229,20 @@ const selfinflatingballoon = () => {
       case 5:
         return (
           <Box>
-            <CustomFormLabel htmlFor="Finish">더 알아보기</CustomFormLabel>
+            <CustomFormLabel
+              htmlFor="Level"
+              style={{
+                color: "#1E262F",
+                fontSize: 16,
+                fontFamily: "Pretendard",
+                fontWeight: "700",
+                wordWrap: "break-word",
+                marginBottom: "20px",
+              }}
+            >
+              더 알아보기
+            </CustomFormLabel>
+
             <div
               style={{
                 textAlign: "center",
@@ -265,8 +278,8 @@ const selfinflatingballoon = () => {
               style={{
                 objectFit: "fill",
               }}
-              muted={true}
-              playing={true}
+              playing={false}
+              controls={true}
               loop={true}
               playsinline
             />
@@ -324,7 +337,11 @@ const selfinflatingballoon = () => {
           오답 입니다. 다시 선택해주세요.
         </Alert>
       </Snackbar>
-      <ParentCard title="스스로 커지는 풍선">
+      <ParentCard
+        title="스스로 커지는 풍선"
+        event={handleBack}
+        disable={activeStep === 0}
+      >
         <Box width="100%">
           <Stepper
             style={{
