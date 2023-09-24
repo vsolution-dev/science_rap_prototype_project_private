@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { useSelector } from "../../../src/store/Store";
 import { AppState } from "../../../src/store/Store";
-import { IconArrowBack, IconBackslash } from "@tabler/icons-react";
+import { IconArrowBack } from "@tabler/icons-react";
 import CustomFormLabel from "../forms/theme-elements/CustomFormLabel";
 import { IconBackspace } from "@tabler/icons";
 
