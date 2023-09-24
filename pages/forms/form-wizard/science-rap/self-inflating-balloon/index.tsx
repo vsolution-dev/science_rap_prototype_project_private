@@ -74,6 +74,7 @@ const selfinflatingballoon = () => {
 
   const quizitemStyles = [
     {
+      marginTop: "603px",
       width: "100%",
       height: "100%",
       background: "#419A68",
@@ -178,7 +179,29 @@ const selfinflatingballoon = () => {
       case 4:
         return (
           <Box>
-            <CustomFormLabel htmlFor="quiz">quiz</CustomFormLabel>
+            <CustomFormLabel htmlFor="quiz">
+              <div
+                style={{
+                  color: "black",
+                  fontSize: 24,
+                  fontFamily: "Pretendard",
+                  fontWeight: "700",
+                  wordWrap: "break-word",
+                }}
+              >
+                간단한 퀴즈를 풀어보아요!🧐📚
+              </div>
+            </CustomFormLabel>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.25)",
+                borderRadius: 23,
+                border: "1px #E1E4E8 solid",
+                lineHeight: "30",
+              }}
+            />
             <div>
               식초와 탄산수소 나트륨이 만나면
               (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)라는 기체가 발생해요.
@@ -206,7 +229,33 @@ const selfinflatingballoon = () => {
       case 5:
         return (
           <Box>
-            <CustomFormLabel htmlFor="Finish">Finish</CustomFormLabel>
+            <CustomFormLabel htmlFor="Finish">더 알아보기</CustomFormLabel>
+            <div
+              style={{
+                textAlign: "center",
+                color: "black",
+                fontSize: 24,
+                fontFamily: "Pretendard",
+                fontWeight: "700",
+                wordWrap: "break-word",
+              }}
+            >
+              딩동댕!🧡⭐️ 정답은{" "}
+            </div>
+            <br></br>
+            <div
+              style={{
+                width: "100%",
+                textAlign: "center",
+                color: "#419A68",
+                fontSize: 28,
+                fontFamily: "Pretendard",
+                fontWeight: "700",
+                wordWrap: "break-word",
+              }}
+            >
+              이산화탄소
+            </div>
             <br></br>
             <ReactPlayer
               className="react-player"
@@ -221,6 +270,33 @@ const selfinflatingballoon = () => {
               loop={true}
               playsinline
             />
+            <br></br>
+            <div
+              style={{
+                color: "black",
+                fontSize: 24,
+                fontFamily: "Pretendard",
+                fontWeight: "700",
+                wordWrap: "break-word",
+              }}
+            >
+              이산화탄소의 성질
+            </div>
+            <br></br>
+            <div
+              style={{
+                color: "#505050",
+                fontSize: 20,
+                fontFamily: "Pretendard",
+                fontWeight: "500",
+                wordWrap: "break-word",
+              }}
+            >
+              이산화탄소는 색깔이 없어서
+              <br />
+              우리 눈에 보이지도 않고 <br />
+              냄새도 나지 않아요~
+            </div>
           </Box>
         );
       default:

@@ -595,7 +595,7 @@ const FormWizard = () => {
         </Alert>
       </Snackbar>
 
-      <ParentCard title="Level Select Wizard">
+      <ParentCard title="ScienceRAP">
         <Box width="100%">
           <Stepper activeStep={activeStep}>
             {steps.map((label, index) => {
