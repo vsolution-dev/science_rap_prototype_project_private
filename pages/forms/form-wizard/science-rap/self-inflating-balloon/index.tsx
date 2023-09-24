@@ -259,9 +259,7 @@ const selfinflatingballoon = () => {
                 wordWrap: "break-word",
                 marginBottom: "20px",
               }}
-            >
-              <center>더 알아보기</center>
-            </CustomFormLabel>
+            ></CustomFormLabel>
 
             <div
               style={{
