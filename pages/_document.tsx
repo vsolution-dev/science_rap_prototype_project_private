@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           ></link>
           <meta name="emotion-insertion-point" content="" />
-          <meta property="og:image" content="/SCIENCE_RAP_thumnail.png" />
+          <meta property="og:image" content="https://i.imgur.com/FgHOCUr.png" />
           {(this.props as any).emotionStyleTags}
         </Head>
         <body>
